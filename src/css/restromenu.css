@@ -1,0 +1,13 @@
+.prostatus{
+   background-color: black;
+   color: white;
+   position: absolute;
+   margin: 10px 0 0 20px;
+border-radius: 5%;
+padding: 5px;
+}
+/* .menudetails{
+   display: flex;
+   flex-wrap: wrap;
+   background-color: black;
+} */

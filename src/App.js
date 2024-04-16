@@ -1,25 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import "./App.css";
+import { CartItems } from "./component/CartItems";
+import "./index.css";
+import { UserContext } from "./Const/UserContext";
+import appStore from "./Const/appStore";
+import React, { lazy, Suspense, useEffect, useState, useContext } from "react";
+import { Header } from "./component/Header";
+import { Body } from "./component/Body";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { ContactUs } from "./component/ContactUs";
+import { Error } from "./component/Error";
+import { RestroMenu } from "./component/RestroMenu";
+const AboutUs = lazy(() => import("./component/AboutUs"));
 
-function App() {
+
+export const AppLayout = () => {
+  const [username, setusername] = useState();
+  useEffect(() => {
+    //Api call
+    const data = {
+      name: "Brijesh Singh",
+    };
+    setusername(data.name);
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="applayout">
+      <UserContext.Provider value={{ userloggedin: username, setusername }}>
+        <Provider store={appStore}>
+          <Header />
+          <Outlet />
+        </Provider>
+      </UserContext.Provider>
     </div>
   );
-}
+};
 
-export default App;
+export const Approuter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "cart",
+        element: <CartItems />,
+      },
+      {
+        path: "aboutus",
+        element: (
+          <Suspense fallback={<h3>Loading...</h3>}>
+            <AboutUs />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/restromenu/:resId",
+        element: <RestroMenu />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);

@@ -1,0 +1,107 @@
+
+body {
+    background-color: #D5D8DC ;
+    font-family: Arial, sans-serif;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    background-color: #FFE5B4;
+}
+
+#logo{
+   
+    width: 150px; 
+ height: 150px; 
+ border-radius: 50%; 
+ object-fit: cover;
+    
+    
+}
+.header >ul{
+    display: flex;
+    padding-right: 20px;
+    padding-top: 3%;
+}
+.header>ul>li{
+    list-style:none;
+    margin: 3px;
+    font-size: large;
+    text-decoration: none;
+  margin-right: 10px;
+ margin-bottom: 30px;
+    align-self: center;
+    
+}
+.header>ul>li>a{
+    list-style:none;
+    margin: 3px;
+    font-size: large;
+    text-decoration: none;
+}
+.appbody{
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+   
+}
+
+.loginbtn{
+    height: 30px;
+    width: 60px;
+    margin-top: 10px;
+}
+.filterbutton, .searchbutton{
+    margin: 20px 5px 10px 5px;
+    border: 1px solid black;
+    color: solid black;
+    text-transform: uppercase;
+    text-shadow:blue;
+   
+   
+}
+
+.filterbutton:hover{
+    cursor: pointer;
+}
+.ShimmerCOntainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.restro-card,.ShimmerCards{
+    width: 200px;
+    height: 400px;
+   
+    margin: 3px;
+    padding: 3px;
+    overflow-wrap: normal;
+    margin: 10px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+   
+}
+.restro-card{
+     background-color: #ABB2B9;
+}
+.restro-card:hover{
+    border: 3px solid red;
+    cursor: pointer;
+    transform: scale(1.1);
+    
+}
+.restroimage,.Shimmerimage{
+    width: 100%;
+    height: 250px;
+    
+}
+.Shimmerimage{
+     background-color: #808B96 ;
+}
+
+.menuimage{
+    height:250px;
+    width: 250px;
+}
+
