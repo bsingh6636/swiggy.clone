@@ -7,12 +7,10 @@ import  MenuCard  from "./MenuCard";
 
 export const RestroMenu = () => {
   let [restromenu, setrestromenu] = useState([]);
-  // let [menuarray, setmenuarray] = useState([]);
-  // const [showitem , setshowitem] = useState(false)
    const [indexset , setindexset] = useState()
    const { resId } = useParams();
   let apidata = useRestroMenuApi(resId);
-  // console.log(apidata);
+  console.log(apidata);
   useEffect(() => {
     if (apidata && apidata.data && apidata.data.cards[5] && apidata.data.cards[5].groupedCard && apidata.data.cards[5].groupedCard.cardGroupMap && apidata.data.cards[5].groupedCard.cardGroupMap.REGULAR && apidata.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards) {
        setrestromenu(

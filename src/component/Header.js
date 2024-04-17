@@ -15,29 +15,46 @@ export const Header = () => {
   let [btnname, setbtnname] = useState("login");
   let useOnlineStatuses = useOnlineStatus();
   return (
-    <div className="header">
+    <div className="bg-red-300 flex flex-wrap items-center justify-between px-4 py-2">
       <img
         id="logo"
+        className="w-24"
         src="https://i.postimg.cc/65fgCPgN/Screenshot-152.png"
         alt="disappeared"
-      ></img>
-      <ul>
-        <li className="decoration-indigo-600"><Link to="/">Home</Link></li>
+      />
+      <ul className="flex items-center space-x-4">
+        <li className="decoration-indigo-600">
+          <Link to="/">Home</Link>
+        </li>
         <li>
           <Link to="/aboutus">About Us</Link>
         </li>
-
-        <li><Link to="/contact">Contact Us</Link></li>
-        <li> <Link to="/cart"> <img className="h-9 w-9" src="https://www.freeiconspng.com/uploads/shopping-cart-icon-19.png"></img> <h4 className="absolute">{cartIems.length === 0 ? "empty" : (cartIems.length)}</h4></Link></li>
-        <li>Online Status{useOnlineStatuses ? "✅" : "🥵"}</li>
-        <button
-          className="loginbtn"
-          onClick={() => {
-            btnname == "login" ? setbtnname(userloggedin) : setbtnname("login");
-          }}
-        >
-          {btnname}
-        </button>
+        <li>
+          <Link to="/contact">Contact Us</Link>
+        </li>
+        <li>
+          <Link to="/cart" className="relative">
+            <img
+              className="h-9 w-9"
+              src="https://www.freeiconspng.com/uploads/shopping-cart-icon-19.png"
+              alt="cart"
+            />
+            <h4 className="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
+              {cartIems.length === 0 ? "0" : cartIems.length}
+            </h4>
+          </Link>
+        </li>
+        <li>Online Status: {useOnlineStatuses ? "✅" : "🥵"}</li>
+        <li>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={() => {
+              setbtnname((prev) => (prev === "login" ? userloggedin : "login"));
+            }}
+          >
+            {btnname}
+          </button>
+        </li>
       </ul>
     </div>
   );

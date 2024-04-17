@@ -55,7 +55,8 @@ export const Body = () => {
         res.info.name.toLowerCase().includes(searchvalue.toLowerCase())
     );
     if (searchedrestro.length === 0) {
-      setrestrolist(reslists);
+      // setrestrolist(reslists);
+      console.log('no restro found')
     } else {
       setrestrolist(searchedrestro);
     }
@@ -65,10 +66,10 @@ export const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filterclass">
+      <div className="flex flex-wrap items-center">
         <input
           type="text"
-          className="searchtext"
+          className="m-2 p-2"
           value={searchvalue}
           onChange={(e) => {
             setsearchvalue(e.target.value);
@@ -76,18 +77,19 @@ export const Body = () => {
           }}
           placeholder="Enter text"
         ></input>
-        <button type="button" className="searchbutton" onClick={searchrestro}>
+        <button type="button" className="m-2 p-2" onClick={searchrestro}>
           Search
         </button>
-        <button type="button" className="filterbutton" onClick={filterestro}>
-          Filter restro
+        <button type="button" className="text-fuchsia-50 m-2 p-2 bg-slate-600 rounded-lg" onClick={filterestro}>
+          Good restro
         </button>
-        <label>Input Name</label>
-        <input value={userloggedin} onChange={(e)=>{setusername(e.target.value)}}></input>
+        <label className="m-2 p-2">Input Name</label>
+        <input className="m-2 p-2" value={userloggedin} onChange={(e)=>{setusername(e.target.value)}}></input>
       </div>
       <div className="appbody">
         {restrolist.map((restroo) => (
           <Link key={restroo.info.id} to={"/restromenu/" + restroo.info.id}>
+            {/* {console.log(restroo)} */}
             {restroo.info.sla.deliveryTime < 35 ? (
               <ProRestrocard restro={restroo} />
             ) : (
