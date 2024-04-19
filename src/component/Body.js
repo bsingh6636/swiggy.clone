@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../Const/useOnlineStatus";
 import { RestroApi, proxyRestroApi } from "./Const";
 import { UserContext  } from "../Const/UserContext";
+import { WhatsOnMind } from "./WhatsOnMind";
 
 export const Body = () => {
   const ProRestrocard = PromotedRestrocard(Restrocard);
@@ -86,6 +87,12 @@ export const Body = () => {
         <label className="m-2 p-2">Input Name</label>
         <input className="m-2 p-2" value={userloggedin} onChange={(e)=>{setusername(e.target.value)}}></input>
       </div>
+      <div >
+     
+        
+      <WhatsOnMind/>
+      </div>
+      
       <div className="appbody">
         {restrolist.map((restroo) => (
           <Link key={restroo.info.id} to={"/restromenu/" + restroo.info.id}>

@@ -14,8 +14,8 @@ export const Restrocard = ({ restro }) => {
   return (
     <div className="restro-card w-[280px]">
       <img
-        className="restroimage"
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
+        className="restroimage" alt={name}
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}` }
       ></img>
 
       <div className="RestroDetails">
@@ -31,7 +31,7 @@ export const Restrocard = ({ restro }) => {
           {name}
         </h3>
         <h4 style={{ marginTop: "-5px" }}>
-          {avgRating} ⭐ ETA{deliveryTime} min
+          {avgRating} ⭐ ETA {deliveryTime} min
         </h4>
         <h5 style={{ color: "green", fontSize: "small" }}>
           {cuisines.join(", ")}
