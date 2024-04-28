@@ -25,7 +25,7 @@ export const Body = () => {
     try {
     const data = await fetch(`${RestroApi}`);
     const jsone = await data.json();
-    console.log(jsone);
+    // console.log(jsone);
     setrestrolist(
       jsone.data.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ||
@@ -50,13 +50,14 @@ export const Body = () => {
   }
  }
   const searchrestro = () => {
-   
+    console.log(reslists)
     let searchedrestro = reslists.filter(
+      
       (res) =>
         res.info.name &&
         res.info.name.toLowerCase().includes(searchvalue.toLowerCase())
     );
-    if (searchedrestro.length === 0) {
+    if (!searchedrestro.length === 0) {
       // setrestrolist(reslists);
       console.log('no restro found')
     } else {
