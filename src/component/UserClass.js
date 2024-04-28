@@ -1,6 +1,6 @@
 import React from "react";
 import { GithubApi } from "./Const";
-import { AboutUs } from "./AboutUs";
+// import { AboutUs } from "./AboutUs";
 
 export class UserClass extends React.Component {
  constructor(props) {

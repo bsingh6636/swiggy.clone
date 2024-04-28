@@ -21,7 +21,7 @@ export const MenuItem = ({ items }) => {
       <div className="flex justify-between items-center w-full">
         <span className="text-left">{items.card?.info?.name}</span>
         <div className="flex float-end">
-          <img src={imagelink + items.card?.info?.imageId} className="w-2/12 h-18" alt="Image Description" />
+          <img src={imagelink + items.card?.info?.imageId} className="w-2/12 h-18" alt="Menu Food " />
           {/* Adjusted the onClick event to pass the specific item to handlebutton */}
           <button type="button" className="ml-2 bg-slate-500 text-gray-100 my-1 mx-1 py-2 px-2" onClick={() => handlebutton(items)}>Add +</button>
           {/* Original button onClick event */}

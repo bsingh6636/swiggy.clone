@@ -50,6 +50,7 @@ export const Body = () => {
   }
  }
   const searchrestro = () => {
+   
     let searchedrestro = reslists.filter(
       (res) =>
         res.info.name &&
@@ -67,16 +68,16 @@ export const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="flex flex-wrap items-center">
+      <div className="flex flex-wrap items-center ">
         <input
           type="text"
-          className="m-2 p-2"
+          className="m-2 p-2 border-2 border-black"
           value={searchvalue}
           onChange={(e) => {
             setsearchvalue(e.target.value);
             searchrestro();
           }}
-          placeholder="Enter text"
+          placeholder="Search Restro"
         ></input>
         <button type="button" className="m-2 p-2" onClick={searchrestro}>
           Search

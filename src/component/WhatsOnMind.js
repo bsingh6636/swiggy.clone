@@ -38,7 +38,7 @@ export const WhatsOnMind = () => {
                 {
                     whatonmind.map((data, index) => {
                         return (
-                            <img key={index} className='w-[144px] h-[180px]' src={`${imagelink}${data.imageId}`}></img>
+                            <img  alt="what's on mind" key={index} className='w-[144px] h-[180px]' src={`${imagelink}${data.imageId}`}></img>
                         )
                     })
                 }
