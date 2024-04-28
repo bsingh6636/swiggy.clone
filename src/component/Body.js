@@ -38,7 +38,7 @@ export const Body = () => {
     console.log('Error fetching from api using api with proxy now', error)
     const proxyData = await fetch(`${proxyRestroApi}`);
     const proxyJson = await proxyData.json();
-    console.log(proxyJson);
+    // console.log(proxyJson);
     setrestrolist(
       proxyJson.data.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ||
@@ -57,7 +57,7 @@ export const Body = () => {
         res.info.name &&
         res.info.name.toLowerCase().includes(searchvalue.toLowerCase())
     );
-    if (!searchedrestro.length === 0) {
+    if (searchedrestro.length === 0) {
       // setrestrolist(reslists);
       console.log('no restro found')
     } else {
