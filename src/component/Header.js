@@ -15,10 +15,10 @@ export const Header = () => {
   let [btnname, setbtnname] = useState("login");
   let useOnlineStatuses = useOnlineStatus();
   return (
-    <div className="bg-red-300 flex flex-wrap items-center justify-between px-4 py-2">
+    <div className="bg-white flex flex-wrap items-center justify-between  py-2 h-32 px-10">
       <img
+      className=""
         id="logo"
-        className="w-24"
         src="https://i.postimg.cc/65fgCPgN/Screenshot-152.png"
         alt="disappeared"
       />

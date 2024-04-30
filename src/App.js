@@ -1,16 +1,16 @@
 import { Provider } from "react-redux";
-import "./App.css";
 import { CartItems } from "./component/CartItems";
 import "./index.css";
 import { UserContext } from "./Const/UserContext";
 import appStore from "./Const/appStore";
-import React, { lazy, Suspense, useEffect, useState, useContext } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Header } from "./component/Header";
 import { Body } from "./component/Body";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter,  Outlet } from "react-router-dom";
 import { ContactUs } from "./component/ContactUs";
 import { Error } from "./component/Error";
 import { RestroMenu } from "./component/RestroMenu";
+import { Footer } from "./component/Footer";
 const AboutUs = lazy(() => import("./component/AboutUs"));
 
 
@@ -28,7 +28,9 @@ export const AppLayout = () => {
       <UserContext.Provider value={{ userloggedin: username, setusername }}>
         <Provider store={appStore}>
           <Header />
+          
           <Outlet />
+          <Footer/>
         </Provider>
       </UserContext.Provider>
     </div>
