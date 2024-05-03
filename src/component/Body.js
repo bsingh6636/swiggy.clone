@@ -68,7 +68,7 @@ setreslists(proxyRestrolist);
   return restrolist.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body pr-6 pl-6">
+    <div className="body bg-slate-200 pr-6 pl-6">
       <div className="flex flex-wrap items-center ">
         <input
           type="text"

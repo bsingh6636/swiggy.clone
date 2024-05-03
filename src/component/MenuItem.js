@@ -4,11 +4,17 @@ import { imagelink } from "./Const";
 
 export const MenuItem = ({ items }) => {
   const dispatch = useDispatch();
-  console.log(items);
 
   const handlebutton = (item) => {
     dispatch(addItem(item));
-  };
+
+  // Retrieve existing cart items from local storage or initialize an empty array
+    const existingCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+ // Add the new item to the existing cart items
+    const updatedCartItems = [...existingCartItems, item];
+     // Update local storage with the updated cart items
+    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+     };
 
   return (
     <div className="border-b border-slate-950  flex justify-between my-2 mx-2 py-2 px-2">

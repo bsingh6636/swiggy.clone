@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className='bg-slate-950 text-white flex flex-wrap justify-between p-5'>
       <section className='flex-1 p-5 pl-[70px]' aria-label='About'>
         <h2>Brijesh Singh</h2>
-        <p className="text-gray-400 text-sm">Your tagline or brief description here</p>
+        <p className="text-gray-400 text-sm">Swiggy Clone , made up using React</p>
       </section>
 
       <nav className='flex-1 p-5' aria-label='Contact Us'>

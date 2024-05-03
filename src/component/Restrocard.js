@@ -14,7 +14,7 @@ export const Restrocard = ({ restro }) => {
   return (
     <div className="restro-card p-4 w-[280px]">
       <img
-        className="h-[180px] w-[370px] rounded-xl"  alt={name}
+        className="h-[182px] w-[273px] rounded-xl "  alt={name}
         src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}` }
       ></img>
 
@@ -40,7 +40,7 @@ export const PromotedRestrocard = (Restrocard) =>{
   return (props) =>{
     return(
       <div className="promoted" >
-       <label className="prostatus" >Delay delivery</label>
+       <label className="prostatus p-2 rounded-lg" >Delay delivery</label>
       <Restrocard {...props}/>
       </div>
     )

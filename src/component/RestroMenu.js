@@ -9,7 +9,7 @@ export const RestroMenu = () => {
   const [indexset, setindexset] = useState();
   const { resId } = useParams();
   let apidata = useRestroMenuApi(resId);
-  console.log(apidata);
+  // console.log(apidata);
   useEffect(() => {
     if (
       apidata?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
@@ -20,7 +20,7 @@ export const RestroMenu = () => {
       );
     }
   }, [apidata]);
-   console.log(restromenu)
+  //  console.log(restromenu)
   return restromenu.length === 0 ? (
     <Shimmer />
   ) : (

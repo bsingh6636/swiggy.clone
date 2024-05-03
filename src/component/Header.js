@@ -1,23 +1,24 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
-import React  from "react";
+import React from "react";
 import { useOnlineStatus } from "../Const/useOnlineStatus";
-import {useContext} from "react";
-import { UserContext } from "../Const/UserContext";
+// import { useContext } from "react";
+// import { UserContext } from "../Const/UserContext";
 import { useSelector } from "react-redux";
 import "../style.css"
 
 export const Header = () => {
-  const {userloggedin} = useContext(UserContext);
-  const cartIems = useSelector((store)=>store.Cart.items);
+  // const { userloggedin } = useContext(UserContext);
+  const cartIems = useSelector((store) => store.Cart.items);
   // console.log(cartIems);
- 
-  let [btnname, setbtnname] = useState("login");
+  const phoneNumber = useSelector(store=>store.User.user)
+  console.log(phoneNumber)
+
   let useOnlineStatuses = useOnlineStatus();
   return (
     <div className="bg-white flex flex-wrap items-center justify-between  py-2 h-32 px-10">
       <img
-      className=""
+        className=""
         id="logo"
         src="https://i.postimg.cc/65fgCPgN/Screenshot-152.png"
         alt="disappeared"
@@ -46,14 +47,13 @@ export const Header = () => {
         </li>
         <li>Online Status: {useOnlineStatuses ? "✅" : "🥵"}</li>
         <li>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => {
-              setbtnname((prev) => (prev === "login" ? userloggedin : "login"));
-            }}
-          >
-            {btnname}
-          </button>
+      
+        <button className="bg-green-600 m-1 p-2 rounded-lg">    {phoneNumber !==null ? phoneNumber : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="text-green h-7 w-7">
+    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+  </svg>}
+  
+</button>
+
         </li>
       </ul>
     </div>
