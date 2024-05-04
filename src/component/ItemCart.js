@@ -5,11 +5,7 @@ import { imagelink } from "./Const";
 
 export const CheckItemCart = ({ items }) => {
 
-  // console.log(items);
-
-  //   const handlebutton = (item) => {
-  //     dispatch(addItem(item));
-  //   };
+ 
 
   return (
     <div className="border-b border-slate-950  flex justify-between my-2 mx-2 py-2 px-2 bg-white">
@@ -61,7 +57,7 @@ export const CartItemupdated = (CheckItemCart) => {
     return (
       <div className=" relative" >
         <CheckItemCart {...props} />
-        <button className="absolute top-0 right-0 bg-black text-white rounded-lg mr-[70px] mt-[100px] p-2" onClick={() => removeItemAndUpdateLocalStorage(props)}>Remove</button>
+        <button className="absolute top-0 right-0 bg-red-600 text-white rounded-lg mr-[70px] mt-[100px] p-2" onClick={() => removeItemAndUpdateLocalStorage(props)}>Remove</button>
       </div>
     )
   }

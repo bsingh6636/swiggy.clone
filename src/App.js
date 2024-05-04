@@ -11,6 +11,7 @@ import { ContactUs } from "./component/ContactUs";
 import { Error } from "./component/Error";
 import { RestroMenu } from "./component/RestroMenu";
 import { Footer } from "./component/Footer";
+import OrderSucess from "./component/OrderSucess";
 const AboutUs = lazy(() => import("./component/AboutUs"));
 
 
@@ -66,6 +67,10 @@ export const Approuter = createBrowserRouter([
         path: "/restromenu/:resId",
         element: <RestroMenu />,
       },
+      {
+        path : "sucessfull",
+        element: <OrderSucess/>
+      }
     ],
     errorElement: <Error />,
   },

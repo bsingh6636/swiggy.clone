@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { clearItem } from '../Const/cartSlice';
+
 
 const PaymentPage = () => {
   const [creditCardNumber, setCreditCardNumber] = useState('');
@@ -6,18 +10,31 @@ const PaymentPage = () => {
   const [cvv, setCvv] = useState('');
   const [homeAddress, setHomeAddress] = useState('');
   const [processing, setProcessing] = useState(false);
+  const dispatch = useDispatch();
+
+
+  const navigate = useNavigate();
+
 
   const handlePayment = () => {
+   
+      navigate('/sucessfull');
+   
+    dispatch(clearItem())
     setProcessing(true);
     setTimeout(() => {
-      alert('Payment successful!');
+    
       setCreditCardNumber('');
       setExpiryDate('');
       setCvv('');
       setHomeAddress('');
       setProcessing(false);
-    }, 2000);
+     
+      
+    }, 100);
+    
   };
+  
 
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
@@ -82,6 +99,7 @@ const PaymentPage = () => {
           </form>
         </div>
       </div>
+     
     </div>
   );
 };

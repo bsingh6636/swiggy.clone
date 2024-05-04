@@ -5,6 +5,7 @@ import { CartItemupdated, CheckItemCart } from "./ItemCart";
 import { initializeApp } from "firebase/app";
 import { userSignin } from "../Const/UserSlice";
 import PaymentPage from "./Paymentpage";
+import OrderSucess from "./OrderSucess";
 
 export const CartItems = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ export const CartItems = () => {
   const [errormsgphone, seterrormsgphone] = useState(null);
   const [errormsgcode, seterrormsgcode] = useState(null);
   const [processing, setProcessing] = useState(false);
+  const [OrderSucessful,setOrderSucessful] = useState(false)
 
   let finalPrice = 0;
   Citems.forEach((cartItem) => {
@@ -27,7 +29,7 @@ export const CartItems = () => {
   });
   const gstCharge = ((12 / 100) * finalPrice).toFixed(2);
   const finalPricewithgst = finalPrice + parseFloat(gstCharge);
-  console.log(gstCharge, finalPrice, finalPricewithgst);
+
 
   const firebaseConfig = {
     apiKey: "AIzaSyBxA1s513imWnuxE63yVQOZv6Pmb0sgUfs",
@@ -105,8 +107,9 @@ export const CartItems = () => {
 
   return (
     <div className="flex flex-wrap justify-center px-20 py-5 bg-gray-200 ">
+     
       <div>
-        {Citems.length === 0 ? (
+        { OrderSucessful  ?  <OrderSucess/> : Citems.length === 0 ? (
           <img className="w-1/2 h-4/5 ml-[300px] flex justify-center" src="https://th.bing.com/th/id/OIG4.1O6SqhU5y3pPbh108oqx?w=1024&h=1024&rs=1&pid=ImgDetMain" alt="Add to Cart" />
         ) : (
           <div>
@@ -158,9 +161,10 @@ export const CartItems = () => {
               }
             </div>
           )}
-          <div id="recaptcha-container"></div>
+         
         </div>
       )}
+      <div id="recaptcha-container"></div>
     </div>
   );
 };

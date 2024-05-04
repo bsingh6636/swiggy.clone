@@ -39,8 +39,8 @@ export const Restrocard = ({ restro }) => {
 export const PromotedRestrocard = (Restrocard) =>{
   return (props) =>{
     return(
-      <div className="promoted" >
-       <label className="prostatus p-2 rounded-lg" >Delay delivery</label>
+      <div className="promoted " >
+       <label className="prostatus absolute text-white p-2 ml-[120px] bg-black  rounded-lg" >Wait longer</label>
       <Restrocard {...props}/>
       </div>
     )

@@ -47,7 +47,7 @@ export const MenuItem = ({ items }) => {
         <button
           type="button"
           className={`${
-            added ? "bg-green-500 text-white" : "bg-black text-gray-100"
+            added ? "bg-green-500 text-white" : "bg-green-600 text-gray-100"
           } absolute  transform -translate-y-1/2 right-0 mr-[30px] mt-[-20px]  py-2 px-4 rounded-lg`}
           onClick={() => handlebutton(items)}
         >
