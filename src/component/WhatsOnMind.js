@@ -22,7 +22,7 @@ export const WhatsOnMind = () => {
 
     return (
         <>
-            <div className='bg-white flex  justify-between p-1'>
+            <div className='bg-white flex  justify-between p-1 '>
                 <label className="pl-4 pb-1 pt-[16px] font-extrabold text-lg">What's on your mind?</label>
                 <div className="flex items-center">
                     <span className='p-3 mx-1 bg-slate-300 rounded-3xl cursor-pointer' onClick={scrollRight}>&#8592;</span>
@@ -30,7 +30,7 @@ export const WhatsOnMind = () => {
                 </div>
             </div>
 
-            <div ref={scrollContainerRef} className="bg-white  flex overflow-x-auto gap-x-4 p-2" style={{ scrollbarWidth: 'none' }}>
+            <div ref={scrollContainerRef} className="bg-white  flex overflow-x-auto gap-x-4 p-1" style={{ scrollbarWidth: 'none' }}>
                 {
                     whatonmind.map((data, index) => {
                         return (

@@ -61,7 +61,7 @@ export const CartItemupdated = (CheckItemCart) => {
     return (
       <div className=" relative" >
         <CheckItemCart {...props} />
-        <button className="absolute top-0 right-0 bg-black text-white rounded-lg p-2" onClick={() => removeItemAndUpdateLocalStorage(props)}>Remove</button>
+        <button className="absolute top-0 right-0 bg-black text-white rounded-lg mr-[70px] mt-[100px] p-2" onClick={() => removeItemAndUpdateLocalStorage(props)}>Remove</button>
       </div>
     )
   }

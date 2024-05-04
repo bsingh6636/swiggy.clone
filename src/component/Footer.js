@@ -1,24 +1,25 @@
 import React from 'react';
+import { FaLinkedin, FaFacebook, FaGithub } from 'react-icons/fa';
 
 export const Footer = () => {
   return (
-    <footer className='bg-slate-950 text-white flex flex-wrap justify-between p-5'>
+    <footer className='bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white flex flex-wrap justify-between p-5 '>
       <section className='flex-1 p-5 pl-[70px]' aria-label='About'>
-        <h2>Brijesh Singh</h2>
-        <p className="text-gray-400 text-sm">Swiggy Clone , made up using React</p>
+        <h2 className="text-2xl font-bold">Brijesh Singh</h2>
+        <p className="text-gray-400 text-sm">Swiggy Clone, made up using React</p>
       </section>
 
       <nav className='flex-1 p-5' aria-label='Contact Us'>
-        <h3>Contact Us</h3>
-        <ul className='list-none'>
-          <li><a href='https://www.linkedin.com/in/bsingh6636/' className="text-white hover:text-gray-300">LinkedIn</a></li>
-          <li><a href='https://www.facebook.com/bsingh575' className="text-white hover:text-gray-300">Facebook</a></li>
-          <li><a href='https://github.com/bsingh6636?tab=repositories' className="text-white hover:text-gray-300">Github</a></li>
+        <h3 className="text-xl font-semibold">Contact Us</h3>
+        <ul className='list-none flex gap-3'>
+          <li><a href='https://www.linkedin.com/in/bsingh6636/' target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300"><FaLinkedin /></a></li>
+          <li><a href='https://www.facebook.com/bsingh575' target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300"><FaFacebook /></a></li>
+          <li><a href='https://github.com/bsingh6636?tab=repositories' target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300"><FaGithub /></a></li>
         </ul>
       </nav>
 
       <section className='flex-1 p-5 pr-[70px]' aria-label='Delivery Locations'>
-        <h3>Delivery Locations</h3>
+        <h3 className="text-xl font-semibold">Delivery Locations</h3>
         <ul className='list-none'>
           <li>Bengaluru</li>
           <li>Delhi</li>
