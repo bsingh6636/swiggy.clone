@@ -7,7 +7,7 @@ export const useRestroMenuApi = (resId) => {
       try{
         console.log(`${MenuApi}${resId}`)
         console.log(`${proxyMenuApi}${resId}`)
-      const jsone = await fetch(`${MenuApi}${resId}`);
+      const jsone = await fetch(`${proxyMenuApi}${resId}`);
       const data = await jsone.json();
       setapidata(data);
     
@@ -16,7 +16,7 @@ export const useRestroMenuApi = (resId) => {
         console.log(`${MenuApi}${resId}`)
         console.log(`${proxyMenuApi}${resId}`)
         console.log('failed to fetch menu api using proxyapi now',error);
-        const jsone = await fetch(`${proxyMenuApi}${resId}`);
+        const jsone = await fetch(`${MenuApi}${resId}`);
         const data = await jsone.json();
         setapidata(data);
         console.log(`${proxyMenuApi}${resId}`)
