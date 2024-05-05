@@ -1,6 +1,6 @@
 
 import React  from "react";
-import "../css/restromenu.css"
+
 export const Restrocard = ({ restro }) => {
   const {
     info: {
