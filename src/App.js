@@ -17,6 +17,7 @@ const AboutUs = lazy(() => import("./component/AboutUs"));
 
 export const AppLayout = () => {
   const [username, setusername] = useState();
+  const [itemsSucess,setItemSucess]=useState()
   useEffect(() => {
     //Api call
     const data = {
@@ -26,7 +27,7 @@ export const AppLayout = () => {
   }, []);
   return (
     <div className="applayout">
-      <UserContext.Provider value={{ userloggedin: username, setusername }}>
+      <UserContext.Provider value={{ userloggedin: username, setusername , itemsSucess,setItemSucess }}>
         <Provider store={appStore}>
           <Header />
           

@@ -10,14 +10,13 @@ export const Body = () => {
   const ProRestrocard = PromotedRestrocard(Restrocard);
   const [restrolist, setrestrolist] = useState([]);
   const [searchvalue, setsearchvalue] = useState("");
-  const [temp, settemp] = useState()
-  let [reslists, setreslists] = useState([]);
+  let [restrolistCopy, setrestrolistCopy] = useState([]);
   const filterestro = () => {
-    let filteredlist = restrolist.filter((resti) => resti.info.avgRating > 4);
+    let filteredlist = restrolistCopy.filter((resti) => resti.info.avgRating > 4);
     setrestrolist(filteredlist);
   };
   const filterDeserts = () => {
-    let filteredList = restrolist.filter((rest) =>
+    let filteredList = restrolistCopy.filter((rest) =>
       rest.info.cuisines.map(cuisine => cuisine.toLowerCase()).includes("desserts".toLowerCase())
     );
     setrestrolist(filteredList)
@@ -43,7 +42,7 @@ export const Body = () => {
           ?.restaurants ||
         jsone.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
       setrestrolist(Restrolist);
-      setreslists(Restrolist);
+      setrestrolistCopy(Restrolist);
     } catch (error) {
       console.log('Error fetching from api using api with proxy now', error)
       const proxyData = await fetch(`${proxyRestroApi}`);
@@ -56,12 +55,12 @@ export const Body = () => {
         proxyJson.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
 
       setrestrolist(proxyRestrolist);
-      setreslists(proxyRestrolist);
+      setrestrolistCopy(proxyRestrolist);
     }
   };
 
   const searchrestro = () => {
-    let searchedrestro = reslists.filter(
+    let searchedrestro = restrolistCopy.filter(
       (res) =>
         res.info.name &&
         res.info.name.toLowerCase().includes(searchvalue.toLowerCase())
@@ -117,7 +116,7 @@ export const Body = () => {
         <button
           type="button"
           className="text-white m-2 p-2 bg-red-500 rounded-lg hover:bg-red-700 transition duration-300 ease-in-out"
-          onClick={() => setrestrolist(reslists)}
+          onClick={() => setrestrolist(restrolistCopy)}
         >
           Remove Filter
         </button>

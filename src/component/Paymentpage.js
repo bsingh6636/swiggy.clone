@@ -48,7 +48,13 @@ const PaymentPage = () => {
                 type="text"
                 id="creditCardNumber"
                 value={creditCardNumber}
-                onChange={(e) => setCreditCardNumber(e.target.value)}
+                onChange={(e) =>{
+                  const formattedNumber = e.target.value
+                  .replace(/\D/g, '')
+                  .replace(/(\d{4})(?=\d)/g, '$1 ')
+                  .trim();
+                  setCreditCardNumber(formattedNumber)}}
+                
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -59,8 +65,11 @@ const PaymentPage = () => {
                   type="text"
                   id="expiryDate"
                   value={expiryDate}
-                  onChange={(e) => {
-                    const formattedDate = e.target.value.replace(/(\d{2})\/(\d{2})$/, '$1/$2');
+                  onChange={(e) =>  {
+                    const formattedDate = e.target.value
+                      .replace(/\D/g, '')
+                      .replace(/(\d{2})(?=\d)/g, '$1/')
+                      .substring(0, 5);
                     setExpiryDate(formattedDate);
                   }}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

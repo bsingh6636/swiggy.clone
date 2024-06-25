@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItemupdated, CheckItemCart } from "./ItemCart";
@@ -6,12 +6,17 @@ import { initializeApp } from "firebase/app";
 import { userSignin } from "../Const/UserSlice";
 import PaymentPage from "./Paymentpage";
 import OrderSucess from "./OrderSucess";
+import { UserContext } from "../Const/UserContext";
 
 export const CartItems = () => {
+  const {setItemSucess} =useContext(UserContext)
+  
+  
   const dispatch = useDispatch();
   const phoneNumber = useSelector((store) => store.User.user);
   const Cartwithbutton = CartItemupdated(CheckItemCart);
   const Citems = useSelector((store) => store.Cart.items);
+  setItemSucess(Citems)
   const inputPhoneRef = useRef(null);
   const verificationCodeRef = useRef(null);
   const [confirmationResult, setConfirmationResult] = useState(null);
@@ -44,6 +49,7 @@ export const CartItems = () => {
   const app = initializeApp(firebaseConfig);
 
   useEffect(() => {
+   
     const auth = getAuth();
     const recaptchaContainer = document.getElementById("recaptcha-container");
 
