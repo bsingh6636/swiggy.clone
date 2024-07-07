@@ -19,24 +19,14 @@ export const useRestroMenuApi = (resId) => {
         } catch (error) {
           // If both fetch attempts fail, use scrapingbee
           console.log('Failed to fetch menu API directly. Trying scrapingbee...');
-          console.log(`${MenuApi}${resId}`)
-          const url = (`${SpringbeeMenuApi}${resId}`);
-          const options = {
-            method: 'GET',
-            headers: {
-              'X-RapidAPI-Key': '556be648a7mshb9939a516bcc2eap107878jsne68c8cc812bf',
-              'X-RapidAPI-Host': 'scrapingbee.p.rapidapi.com'
-            }
-          };
-
-          try {
-            const response = await fetch(url, options);
-            const result = await response.text();
-            const jsonData = JSON.parse(result); // Parse the JSON data
-            setapidata(jsonData); // Set the parsed JSON data to apidata
-            console.log(jsonData); // Optionally log the parsed data
-          }catch (error) {
-            console.error(error);
+        try {
+       
+            const jsone = await fetch(`${SpringbeeMenuApi}${resId}`);
+            const data = await jsone.json();
+            setapidata(data);
+          } catch (error) {
+            console.log(error,'Failed to fetch menu API using proxy API now');
+           
           }
         }
       }
@@ -47,3 +37,4 @@ export const useRestroMenuApi = (resId) => {
 
   return apidata;
 };
+
