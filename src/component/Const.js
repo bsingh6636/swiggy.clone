@@ -1,5 +1,5 @@
 export const MenuApi = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.96340&lng=77.58550&restaurantId="
-export const SpringbeeMenuApi = "https://scrapingbee.p.rapidapi.com/?url=https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.96340&lng=77.58550&restaurantId="
+export const SpringbeeMenuApi = "http://localhost:1234/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.96340&lng=77.58550&restaurantId="
 export const proxyMenuApi = "https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.96340&lng=77.58550&restaurantId="
 export const RestroApi = "http://localhost:1234/https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.1017167&lng=77.634826600000011"
 export const GithubApi="https://api.github.com/users/bsingh6636"
