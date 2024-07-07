@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Swiggy Clone Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Swiggy clone built with ReactJS, designed to demonstrate advanced web development techniques and provide a seamless user experience similar to the Swiggy food delivery platform.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Swiggy API Integration**: Dynamically fetches restaurant information using live Swiggy APIs, bypassing CORS issues with a proxy or VPN.
+- **Lazy Loading & Suspense**: Utilizes React's lazy loading and suspense for efficient chunking and code splitting.
+- **Redux for State Management**: Manages cart and authentication states seamlessly.
+- **Firebase Authentication**: Implements secure user authentication.
+- **Shimmer Effects**: Adds visually appealing loading placeholders for an enhanced user experience.
+- **Parcel Bundling**: Ensures fast loading times, keeping them under 300ms.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js installed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/bsingh6636/Stock_Market
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project directory:
+    ```bash
+    cd Stock-Market
+    ```
 
-### `npm run build`
+3. Install necessary packages:
+    ```bash
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Start the project:
+    ```bash
+    npm run start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **ReactJS**
+- **Redux**
+- **Firebase**
+- **Parcel**
+- **Swiggy API**
 
-### `npm run eject`
+## Project Demo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Watch the demo video to see the project in action: [Link to the video]
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contributions are welcome! Please open an issue or submit a pull request with your changes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
+This project is licensed under the MIT License.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feel free to explore the code, give feedback, and contribute to make this project even better!
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#ReactJS #WebDevelopment #SwiggyClone #OpenSource #JavaScript #FrontendDevelopment #Firebase #Redux #APIIntegration #PerformanceOptimization
