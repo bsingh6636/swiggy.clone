@@ -5,4 +5,4 @@ export const RestroApi = "http://localhost:1234/https://www.swiggy.com/dapi/rest
 export const GithubApi="https://api.github.com/users/bsingh6636"
 export const imagelink ="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 //  export const MenuApi = "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.96340&lng=77.58550&restaurantId="
- export const proxyRestroApi = "http://localhost:1234/https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.1017167&lng=77.634826600000011"
+ export const proxyRestroApi = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.1017167&lng=77.634826600000011"
