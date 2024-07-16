@@ -1,5 +1,5 @@
 import React, {  useRef } from 'react';
-import { imagelink } from './Const';
+import { imagelink } from '../Const/Const';
 import { restrodata } from '../MockData/RestroApiData';
 
 export const WhatsOnMind = () => {

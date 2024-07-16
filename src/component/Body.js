@@ -3,18 +3,20 @@ import React, { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../Const/useOnlineStatus";
-import { RestroApi, proxyRestroApi } from "./Const";
-import { WhatsOnMind } from "./WhatsOnMind";
+import { WhatsOnMind } from "../smallComponents/WhatsOnMind";
+import { fetchdata } from "../Const/restroApi";
 
 export const Body = () => {
   const ProRestrocard = PromotedRestrocard(Restrocard);
   const [restrolist, setrestrolist] = useState([]);
   const [searchvalue, setsearchvalue] = useState("");
   let [restrolistCopy, setrestrolistCopy] = useState([]);
+
   const filterestro = () => {
     let filteredlist = restrolistCopy.filter((resti) => resti.info.avgRating > 4);
     setrestrolist(filteredlist);
   };
+
   const filterDeserts = () => {
     let filteredList = restrolistCopy.filter((rest) =>
       rest.info.cuisines.map(cuisine => cuisine.toLowerCase()).includes("desserts".toLowerCase())
@@ -25,39 +27,15 @@ export const Body = () => {
 
 
   useEffect(() => {
-    fetchdata();
+    const fetchRestroData = async () => {
+      const data = await fetchdata();
+      setrestrolist(data);
+      setrestrolistCopy(data);
+    }
+    fetchRestroData()
   }, []);
 
   useOnlineStatus();
-
-  const fetchdata = async () => {
-    try {
-      const data = await fetch(`${RestroApi}`);
-      const jsone = await data.json();
-
-      const Restrolist =
-        jsone.data.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        jsone.data.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        jsone.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
-      setrestrolist(Restrolist);
-      setrestrolistCopy(Restrolist);
-    } catch (error) {
-      console.log('Error fetching from api using api with proxy now', error)
-      const proxyData = await fetch(`${proxyRestroApi}`);
-      const proxyJson = await proxyData.json();
-
-      const proxyRestrolist = proxyJson.data.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-        proxyJson.data.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        proxyJson.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
-
-      setrestrolist(proxyRestrolist);
-      setrestrolistCopy(proxyRestrolist);
-    }
-  };
 
   const searchrestro = () => {
     let searchedrestro = restrolistCopy.filter(

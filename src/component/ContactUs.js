@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Map from "./Map";
+import Map from "../smallComponents/Map";
+
 
 export const ContactUs = () => {
   const [form, setForm] = useState({ subject: '', message: '' });

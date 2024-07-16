@@ -3,7 +3,7 @@ import { CartItems } from "./component/CartItems";
 import "./index.css";
 import { UserContext } from "./Const/UserContext";
 import appStore from "./Const/appStore";
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { Header } from "./component/Header";
 import { Body } from "./component/Body";
 import { createBrowserRouter,  Outlet } from "react-router-dom";
@@ -11,23 +11,15 @@ import { ContactUs } from "./component/ContactUs";
 import { Error } from "./component/Error";
 import { RestroMenu } from "./component/RestroMenu";
 import { Footer } from "./component/Footer";
-import OrderSucess from "./component/OrderSucess";
+import OrderSucess from "./smallComponents/OrderSucess";
 const AboutUs = lazy(() => import("./component/AboutUs"));
 
 
 export const AppLayout = () => {
-  const [username, setusername] = useState();
   const [itemsSucess,setItemSucess]=useState()
-  useEffect(() => {
-    //Api call
-    const data = {
-      name: "Brijesh Singh",
-    };
-    setusername(data.name);
-  }, []);
   return (
     <div className="applayout">
-      <UserContext.Provider value={{ userloggedin: username, setusername , itemsSucess,setItemSucess }}>
+      <UserContext.Provider value={{ itemsSucess,setItemSucess }}>
         <Provider store={appStore}>
           <Header />
           
@@ -71,8 +63,12 @@ export const Approuter = createBrowserRouter([
       {
         path : "sucessfull",
         element: <OrderSucess/>
-      }
+      },
+      {
+        path: "*", // This will catch all undefined routes and display the error component
+        element: <Error />,
+      },
     ],
-    errorElement: <Error />,
+    // errorElement: <Error />,
   },
 ]);

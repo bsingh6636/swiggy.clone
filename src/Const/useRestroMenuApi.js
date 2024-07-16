@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { MenuApi, SpringbeeMenuApi, proxyMenuApi } from "../component/Const";
+import { MenuApi, SpringbeeMenuApi, proxyMenuApi } from "./Const";
 export const useRestroMenuApi = (resId) => {
   const [apidata, setapidata] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Attempt to fetch data using the proxy
-        const jsone = await fetch(`${proxyMenuApi}${resId}`);
+        const jsone = await fetch(`${MenuApi}${resId}`);
         const data = await jsone.json();
         setapidata(data);
       } catch (error) {
         // If the first fetch fails, log the error and attempt to fetch data directly
         console.log('Failed to fetch menu API using proxy API now');
         try {
-          const jsone = await fetch(`${MenuApi}${resId}`);
+          const jsone = await fetch(`${proxyMenuApi}${resId}`);
           const data = await jsone.json();
           setapidata(data);
         } catch (error) {

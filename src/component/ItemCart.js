@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 // import { addItem } from "../Const/cartSlice";
 import { removeItem } from "../Const/cartSlice";
-import { imagelink } from "./Const";
+import { imagelink } from "../Const/Const";
 
 export const CheckItemCart = ({ items }) => {
 

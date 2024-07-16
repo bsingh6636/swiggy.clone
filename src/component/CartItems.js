@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { CartItemupdated, CheckItemCart } from "./ItemCart";
 import { initializeApp } from "firebase/app";
 import { userSignin } from "../Const/UserSlice";
-import PaymentPage from "./Paymentpage";
-import OrderSucess from "./OrderSucess";
+import PaymentPage from "../smallComponents/Paymentpage";
+import OrderSucess from "../smallComponents/OrderSucess";
 import { UserContext } from "../Const/UserContext";
 
 export const CartItems = () => {
@@ -121,7 +121,7 @@ export const CartItems = () => {
           <div>
             {Citems.map((cartItem, index) => (
               <div key={index}>
-                <Cartwithbutton items={cartItem} />
+                <Cartwithbutton items={cartItem} /> 
               </div>
             ))}
           </div>
@@ -153,7 +153,7 @@ export const CartItems = () => {
             <div>
               {phoneNumber !== null ? <PaymentPage /> : (
                 <>
-                  <input ref={inputPhoneRef} placeholder="Phone Number" className="border w-full  rounded-lg border-black p-2 m-1" /><br />
+                  <input ref={inputPhoneRef} placeholder="e.g +91 8050578803" className="border w-full  rounded-lg border-black p-2 m-1" /><br />
                   <p className="text-red-600 font-medium flex justify-center">{errormsgphone}</p>
                   <button className={`bg-green-600 w-full p-3 rounded-lg text-white m-1 ${processing ? 'opacity-50 cursor-not-allowed' : ''}`} onClick={handleSignin}>Login</button>    <br />
                 </>

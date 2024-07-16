@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GithubApi } from "./Const";
+import { GithubApi } from "../Const/Const";
 
 export default function AboutUs() {
     const [count, setCount] = useState(0);

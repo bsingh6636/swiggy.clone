@@ -4,13 +4,13 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: initialusernumber, // Change the initialState to an object with a user property
-    // Other initial state properties if needed
+    
   },
   reducers: {
     userSignin: (state, action) => {
       state.user = action.payload; // Update the user property with the payload
     },
-    // Define other reducers if needed
+   
   },
 });
 
