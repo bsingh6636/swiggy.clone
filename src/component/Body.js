@@ -1,6 +1,6 @@
 import { Restrocard, PromotedRestrocard } from "./Restrocard";
 import React, { useEffect, useState } from "react";
-import { Shimmer } from "./Shimmer";
+import { Shimmer } from "../smallComponents/Shimmer";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../Const/useOnlineStatus";
 import { WhatsOnMind } from "../smallComponents/WhatsOnMind";

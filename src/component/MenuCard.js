@@ -10,7 +10,7 @@ const MenuCard = ({menu,showitem,setindexset}) => {
    }
 
 
-    return itemsarray== undefined ? null : (
+    return itemsarray === undefined ? null : (
     <div className="">
         <div className="w-6/12   my-2 mx-auto px-2 py-3 shadow-xl cursor-pointer" onClick={handleclick}>
             <span className="font-semibold w-full flex justify-center">{menu.card?.card?.title} ({itemCardsCount})</span>

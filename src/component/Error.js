@@ -1,6 +1,5 @@
 import React  from "react";
 import { Link, useRouteError } from "react-router-dom";
-import { AppLayout } from "../App.js";
 export const Error = () => {
   const err = useRouteError();
   console.log(err);
