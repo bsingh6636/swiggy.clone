@@ -37,7 +37,6 @@ export const CartItemupdated = (CheckItemCart) => {
   const dispatch = useDispatch();
 
   const removeItemAndUpdateLocalStorage = (item) => {
-    //  console.log(item)
      dispatch(removeItem(item));
 
        const existingCartItems = JSON.parse(localStorage.getItem("cart")) || [];

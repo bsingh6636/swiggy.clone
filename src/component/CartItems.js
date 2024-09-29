@@ -1,32 +1,28 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItemupdated, CheckItemCart } from "./ItemCart";
-import { initializeApp } from "firebase/app";
 import { userSignin } from "../Const/UserSlice";
 import PaymentPage from "../smallComponents/Paymentpage";
 import OrderSucess from "../smallComponents/OrderSucess";
 import { UserContext } from "../Const/UserContext";
-
+import { app, firebaseConfig, getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "../firebase";
 export const CartItems = () => {
-  const {setItemSucess} =useContext(UserContext)
-  
-  
+  const { setItemSucess } = useContext(UserContext)
+
   const dispatch = useDispatch();
   const phoneNumber = useSelector((store) => store.User.user);
   const Cartwithbutton = CartItemupdated(CheckItemCart);
   const Citems = useSelector((store) => store.Cart.items);
-  setItemSucess(Citems)
   const inputPhoneRef = useRef(null);
   const verificationCodeRef = useRef(null);
   const [confirmationResult, setConfirmationResult] = useState(null);
-  const [recaptchaVerifier, setRecaptchaVerifier] = useState(null); 
+  const [recaptchaVerifier, setRecaptchaVerifier] = useState(null);
   const [inputphonenumberbox, setinputphonenumberbox] = useState(false);
   const [verificationbox, setverificationbox] = useState(false);
   const [errormsgphone, seterrormsgphone] = useState(null);
   const [errormsgcode, seterrormsgcode] = useState(null);
   const [processing, setProcessing] = useState(false);
-  const [OrderSucessful,setOrderSucessful] = useState(false)
+  const [OrderSucessful, setOrderSucessful] = useState(false)
 
   let finalPrice = 0;
   Citems.forEach((cartItem) => {
@@ -35,21 +31,8 @@ export const CartItems = () => {
   const gstCharge = ((12 / 100) * finalPrice).toFixed(2);
   const finalPricewithgst = finalPrice + parseFloat(gstCharge);
 
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBxA1s513imWnuxE63yVQOZv6Pmb0sgUfs",
-    authDomain: "swiggyclone-51356.firebaseapp.com",
-    projectId: "swiggyclone-51356",
-    storageBucket: "swiggyclone-51356.appspot.com",
-    messagingSenderId: "953452650435",
-    appId: "1:953452650435:web:09df0bba9f00c8c3432776",
-    measurementId: "G-THF74F8VJF"
-  };
-
-  const app = initializeApp(firebaseConfig);
-
   useEffect(() => {
-   
+
     const auth = getAuth();
     const recaptchaContainer = document.getElementById("recaptcha-container");
 
@@ -61,31 +44,42 @@ export const CartItems = () => {
     });
 
     setRecaptchaVerifier(recaptchaVerifier);
+
   }, []);
 
-  const handleSignin = () => {
-    const auth = getAuth();
-    const phoneNumber = inputPhoneRef.current.value;
-    const appVerifier = recaptchaVerifier;
+  useEffect(() => {
+    setItemSucess(Citems)
+  }, [Citems])
+  const handleSignin = async () => {
+    try {
+      const auth = getAuth()
+      const phoneNumber = inputPhoneRef.current.value;
+      const appVerifier = recaptchaVerifier;
 
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-      .then((confirmationResult) => {
-        console.log("Code sent successfully");
-        setConfirmationResult(confirmationResult);
-        setverificationbox(true);
-        if (errormsgphone !== null) {
-          seterrormsgphone(null);
-        }
-        setProcessing(true);
-        setTimeout(() => {
-          setProcessing(false);
-        }, 3000);
-      })
-      .catch((error) => {
-        console.log(error);
-        seterrormsgphone("Invalid format");
-      });
+      // Using async/await for signInWithPhoneNumber
+      const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+      console.log("Code sent successfully");
+      setConfirmationResult(confirmationResult);
+      setverificationbox(true);
+
+      // Clear any previous error message
+      if (errormsgphone !== null) {
+        seterrormsgphone(null);
+      }
+
+      // Set processing state
+      setProcessing(true);
+      setTimeout(() => {
+        setProcessing(false);
+      }, 3000);
+
+    } catch (error) {
+      // Handle any errors that occurred during the sign-in process
+      console.log(error);
+      seterrormsgphone(error);
+    }
   };
+
 
   const handleVerification = () => {
     const code = verificationCodeRef.current.value;
@@ -113,15 +107,15 @@ export const CartItems = () => {
 
   return (
     <div className="flex flex-wrap justify-center px-20 py-5 bg-gray-200 ">
-     
+
       <div>
-        { OrderSucessful  ?  <OrderSucess/> : Citems.length === 0 ? (
+        {OrderSucessful ? <OrderSucess /> : Citems.length === 0 ? (
           <img className="w-1/2 h-4/5 ml-[300px] flex justify-center" src="https://th.bing.com/th/id/OIG4.1O6SqhU5y3pPbh108oqx?w=1024&h=1024&rs=1&pid=ImgDetMain" alt="Add to Cart" />
         ) : (
           <div>
             {Citems.map((cartItem, index) => (
               <div key={index}>
-                <Cartwithbutton items={cartItem} /> 
+                <Cartwithbutton items={cartItem} />
               </div>
             ))}
           </div>
@@ -167,7 +161,7 @@ export const CartItems = () => {
               }
             </div>
           )}
-         
+
         </div>
       )}
       <div id="recaptcha-container"></div>

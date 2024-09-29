@@ -1,28 +1,30 @@
-import { proxyRestroApi, RestroApi } from "./Const";
+
 
 export const fetchdata = async () => {
-    try {
-      const data = await fetch(`${RestroApi}`);
-      const jsone = await data.json();
+  try {
+    const API_KEY = 'f3606db5a7ed0f51';
+    const EDUCORS_URL ='https://educorssolver.host/api/getData';
+    const TARGET_URL ='https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.1017167&lng=77.634826600000011';
 
-      const Restrolist =
-        jsone.data.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        jsone.data.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        jsone.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
-        return Restrolist;
+    const response = await fetch(EDUCORS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ApiKey: API_KEY, Target: TARGET_URL }),
+    });
+    const jsonResponse = await response.json();
 
-    } catch (error) {
-      console.log('Error fetching from api using api with proxy now', error)
-      const proxyData = await fetch(`${proxyRestroApi}`);
-      const proxyJson = await proxyData.json();
+    const restaurantList = extractRestaurants(jsonResponse);
+    return restaurantList;
 
-      const Restrolist = proxyJson.data.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-        proxyJson.data.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        proxyJson.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
-        return Restrolist;
-    }
-  };
+  } catch (error) {
+    console.error('Error fetching from API with :', error);
+
+  }
+};
+
+const extractRestaurants = (json) => {
+  return json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    json.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    json.data.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    [];
+};

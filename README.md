@@ -45,9 +45,9 @@ This project is a Swiggy clone built with ReactJS, designed to demonstrate advan
 - **Parcel**
 - **Swiggy API**
 
-## Project Demo
+<!-- ## Project Demo -->
 
-Watch the demo video to see the project in action: [Link to the video]
+<!-- Watch the demo video to see the project in action: [Link to the video] -->
 
 ## Contributing
 

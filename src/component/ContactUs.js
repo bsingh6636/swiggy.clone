@@ -55,9 +55,9 @@ export const ContactUs = () => {
           <p className="text-center mb-4">Address: Kannuru, Bengaluru, Bellahalli, Karnataka 560064</p>
           <div className="flex justify-center space-x-4 mt-4">
          
-            <a href="#" className="text-blue-500 hover:text-blue-700"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="text-blue-500 hover:text-blue-700"><i className="fab fa-twitter"></i></a>
-            <a href="#" className="text-blue-500 hover:text-blue-700"><i className="fab fa-instagram"></i></a>
+            <a href="" className="text-blue-500 hover:text-blue-700"><i className="fab fa-facebook-f"></i></a>
+            <a href="" className="text-blue-500 hover:text-blue-700"><i className="fab fa-twitter"></i></a>
+            <a href="" className="text-blue-500 hover:text-blue-700"><i className="fab fa-instagram"></i></a>
           </div>
         </div>
 

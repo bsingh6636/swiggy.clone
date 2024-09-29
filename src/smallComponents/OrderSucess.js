@@ -5,7 +5,6 @@ import { UserContext } from '../Const/UserContext';
 
 const OrderSucess = () => {
   const {itemsSucess} =useContext(UserContext)
-  console.log(itemsSucess)
   const [showAnimation, setShowAnimation] = useState(false);
 
   const handleAnimation = () => {

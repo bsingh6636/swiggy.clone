@@ -16,10 +16,7 @@ const cartSlice = createSlice({
  
         return cartItem.card.info.id !== action.payload.items.card.info.id;
       });
-      console.log("after")
   
-      console.log("state",state)
-      console.log("state.itmes",state.items)
     },
     clearItem: (state, action) => {
       state.items.length = [];
