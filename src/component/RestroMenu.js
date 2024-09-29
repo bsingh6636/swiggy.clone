@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Shimmer } from "../smallComponents/Shimmer.js";
 import { useParams } from "react-router-dom";
-import { useRestroMenuApi } from "../Const/useRestroMenuApi.js";
 import MenuCard from "./MenuCard";
 import { fetchproxy } from "../Const/fetchproxy.js";
 import { MenuApi } from "../Const/Const.js";
@@ -25,12 +24,14 @@ export const RestroMenu = () => {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, [resId]);
   useEffect(() => {
     if (apiData) {
       const menuCards = apiData?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || apiData?.data?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards
       if (menuCards && menuCards.length > 1)setRestroMenu(menuCards.slice(1));
     }
+    // eslint-disable-next-line
   }, [apiData]);
   if (!restroMenu) {
     return <Shimmer />;

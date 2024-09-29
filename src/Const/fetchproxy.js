@@ -2,7 +2,6 @@
  // sensitive information like API keys.
  const API_KEY = 'f3606db5a7ed0f51';
  const EDUCORS_URL ='https://educorssolver.host/api/getData';
- const TARGET_URL ='https://api.github.com/users/bsingh6636/repos';
 
  // Function to get data from the API
  export async function fetchproxy(Target) {
