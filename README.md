@@ -19,7 +19,7 @@ This project is a Swiggy clone built with ReactJS, designed to demonstrate advan
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/bsingh6636/Stock_Market
+    git clone https://github.com/bsingh6636/swiggy.clone
     ```
 
 2. Navigate to the project directory:
