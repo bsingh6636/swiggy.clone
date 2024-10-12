@@ -9,15 +9,6 @@ export const Header = () => {
 
   const useOnlineStatuses = useOnlineStatus();
 
-  useEffect(()=>{
-    async function check(){
-      const response = await fetch('https://thingproxy.freeboard.io/fetch/https://api.github.com/users/bsingh6636/repos');
-      const data =await response.json();
-      console.log('GitHUbreposr',data);
-    }
-    check();
-  },[])
-
   return (
     <div className="bg-gradient-to-r from-blue-500 to-purple-600 flex flex-wrap justify-between items-center py-2 h-24 md:h-32 px-4 md:px-10 shadow-lg border-b border-gray-300 mb-1">
       <img className="h-12 w-auto md:h-24" id="logo" src="https://i.postimg.cc/65fgCPgN/Screenshot-152.png" alt="Logo" />
