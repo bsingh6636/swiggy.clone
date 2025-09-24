@@ -50,7 +50,7 @@ export const Body = () => {
     }
   };
 
-  return restrolist.length === 0 ? (
+  return restrolist?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body bg-gray-200 pr-6 pl-6">
